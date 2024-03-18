@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DISC Test + Spiritual Gifts</title>
+    <meta name="keywords" content="spiritual gifts, disc test, profile, leadership style, spiritual gifts test" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/question-init.js"></script>
+    <script src="js/results.js"></script>
+
+    <!-- Saving Scripts 
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+</head>
+
+<body>
+    <div id="disc-intro">
+        <div class="header">
+            <img src="img/lt-logo-words.png" alt="L&T logo">
+            <h1>DISC Test + Spiritual Gifts</h1>
+        </div>
+
+        <div id="start" class="content">
+            <h2>About this Test</h2>
+            <p class="intro-text">This test will help determine your personality type and guide you towards your spiritual gifts.</p>
+            <p>You will be asked 92 short questions. Each question will have five possible answers:</p>
+            <ul class="">
+                <li><b>Never</b> - This is hardly ever true for me or this does not apply to me.</li>
+                <li><b>Rarely</b> - This is rarely true for me or this rarely applies to me.</li>
+                <li><b>Sometimes</b> - This is sometimes true for me or this sometimes applies to me.</li>
+                <li><b>Often</b> - This is often true for me or this often applies to me.</li>
+                <li><b>Always</b> - This is almost always true for me or this almost always applies to me.</li>
+            </ul>
+            <p class="message"></p>
+            <span id="begin">
+                <span>Begin</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048"><path d="M6.125 1088h1797.89l-402.976 403 89.994 90L2048 1024l-556.966-557-89.994 90 402.976 403H6.125v128z"></path></svg>
+            </span>
+            <!--<div class="footer">
+                <p>Powered by <a href="https://loveandtruthchurch.com">Love and Truth Ministries.</a></p>
+                <p>&copy; 2024. All Rights Reserved.</p>
+            </div>-->
+        </div>
+    </div>
+    <div id="question"></div>
+    <div id="results" style="display:none;">
+        <div class="save-wrapper">
+            <h2>Save + Share</h2>
+            <div id="save-btn">
+                <span>Save Results</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048"><path d="M6.125 1088h1797.89l-402.976 403 89.994 90L2048 1024l-556.966-557-89.994 90 402.976 403H6.125v128z"></path></svg>
+            </div>
+            <div id="share-btn">
+                <span>Share Results</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048"><path d="M6.125 1088h1797.89l-402.976 403 89.994 90L2048 1024l-556.966-557-89.994 90 402.976 403H6.125v128z"></path></svg>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var userResultsData;
+        document.getElementById('save-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            var toPdf = document.querySelector('#results .content');
+
+            /*html2canvas(toPdf).then(canvas => {
+                document.body.appendChild(canvas);
+            });*/
+
+            /*window.jsPDF = window.jspdf.jsPDF;
+                var doc = new jsPDF();
+                doc.html(toPdf, {
+                    callback: function(doc) {
+                        // Save the PDF
+                        doc.save('disc-gifts-results.pdf');
+                        //doc.output('dataurlnewwindow');
+                    },
+                    margin: [5, 5, 5, 5],
+                    autoPaging: 'text',
+                    width: 200, //target width in the PDF document
+                    windowWidth: 675 //window width in CSS pixels
+                });*/
+
+                var worker = html2pdf().from(toPdf).save();
+
+        });
+    </script>
+</body>
+
+</html>
