@@ -79,7 +79,7 @@ function getResults(answers) {
 
     console.log(sres);
 
-    sres = Object.fromEntries(Object.entries(sres).sort(([,a],[,b]) => b-a));
+    //sres = Object.fromEntries(Object.entries(sres).sort(([,a],[,b]) => b-a));
 
     console.log(sres);
 
@@ -107,6 +107,8 @@ function getResults(answers) {
     sres = sres.slice(0, 5);
     var nres = jsonToArray(res).slice(0, 2);
     var aks = Object.keys(nres).map(function(_) { return nres[_]; }); 
+
+    console.log(aks);
 
     function jsonToArray(jd) {
         var arr = [];
